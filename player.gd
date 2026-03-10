@@ -5,7 +5,6 @@ signal player_died
 @onready var head = $head
 var current_speed = 5.0
 const walking_speed = 5.0
-const sprinting_speed = 8.0
 const jump_velocity = 8
 const mouse_sens = 0.25
 
@@ -13,7 +12,6 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var is_dead = false
 
 func _ready():
-	# Ensure game is running and mouse is locked on start
 	get_tree().paused = false
 	is_dead = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -29,7 +27,6 @@ func _input(event):
 func _physics_process(delta):
 	if is_dead: return
 
-	# Fall death check
 	if position.y < -10: 
 		die()
 
@@ -53,4 +50,4 @@ func _physics_process(delta):
 func die():
 	is_dead = true
 	velocity = Vector3.ZERO
-	player_died.emit() # This triggers the UI
+	player_died.emit()

@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://TextureRect.gd" id="3_rrcmt"]
 [ext_resource type="FontFile" uid="uid://ch30omuenf6ic" path="res://diffusion/diffusion/ttf/diffusion-bold.ttf" id="4_lgxdv"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ks3eh"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5lft7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_83etr"]
 
@@ -18,44 +18,60 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_xxapd")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.332899
-anchor_top = -0.332562
-anchor_right = 1.3329
-anchor_bottom = 1.33256
-offset_left = 383.5
-offset_top = 215.5
-offset_right = -383.5
-offset_bottom = -215.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -108.0
+offset_top = -93.0
+offset_right = 48.0
+offset_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.1, 1.1)
+pivot_offset = Vector2(654, 396.5)
+mouse_filter = 2
 texture = ExtResource("2_ep65s")
+expand_mode = 1
+stretch_mode = 5
 script = ExtResource("3_rrcmt")
-metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 250.0
+offset_top = -239.5
+offset_right = 460.0
+offset_bottom = -176.5
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_lgxdv")
+theme_override_font_sizes/font_size = 50
+text = "3D GAME"
+text_overrun_behavior = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -33.0
-offset_top = -38.5
-offset_right = 33.0
-offset_bottom = 38.5
-grow_horizontal = 2
+offset_left = 250.0
+offset_top = -61.0
+offset_right = 394.0
+offset_bottom = 61.0
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="StartButton" type="Button" parent="TextureRect/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_lgxdv")
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ks3eh")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5lft7")
 text = "START"
 
 [node name="OptionsButton" type="Button" parent="TextureRect/VBoxContainer"]
@@ -67,6 +83,7 @@ text = "CONTROLS"
 
 [node name="QuitButton" type="Button" parent="TextureRect/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("4_lgxdv")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_cnu0j")

@@ -1,33 +1,30 @@
-[gd_scene load_steps=7 format=3 uid="uid://ybelcr0i6xlv"]
+[gd_scene format=3 uid="uid://ybelcr0i6xlv"]
 
-[ext_resource type="Script" path="res://coin.gd" id="1_4knml"]
+[ext_resource type="Script" uid="uid://k541f0ekwa2w" path="res://coin.gd" id="1_4knml"]
 [ext_resource type="Texture2D" uid="uid://77npnhc5tsq0" path="res://lemon_yellow__63669.webp" id="2_0t63x"]
+[ext_resource type="ArrayMesh" uid="uid://dnece7fx6v8r5" path="res://Coin Dollar Sign/CoinDollarSign.obj" id="3_v7riw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v7riw"]
 albedo_texture = ExtResource("2_0t63x")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_d5gmh"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_kngpb"]
-material = SubResource("ShaderMaterial_d5gmh")
-top_radius = 0.3
-bottom_radius = 0.3
-height = 0.15
-
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_lmi22"]
 height = 0.15
-radius = 0.3
+radius = 0.2
 
-[node name="coin" type="Area3D"]
+[node name="coin" type="Area3D" unique_id=6554133]
 script = ExtResource("1_4knml")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=987781009]
+transform = Transform3D(1, 1.15107915e-14, 0, -1.0658141e-14, 1.0799999, 0, 0, 0, 1.024, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_v7riw")
-mesh = SubResource("CylinderMesh_kngpb")
+mesh = ExtResource("3_v7riw")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1519017596]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("CylinderShape3D_lmi22")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=270442615]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 0)
+light_color = Color(0.8980392, 0.7019608, 0, 1)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
