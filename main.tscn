@@ -7,6 +7,7 @@
 [ext_resource type="ArrayMesh" uid="uid://c3nqo0lnpi0ln" path="res://Grass Platform/GrassPlatform.obj" id="6_kek77"]
 [ext_resource type="PackedScene" uid="uid://dnumofn1s30wj" path="res://deathscreen.tscn" id="7_svlmq"]
 [ext_resource type="Script" uid="uid://c0kulaqoibli2" path="res://canvas_layer_2.gd" id="8_5vw27"]
+[ext_resource type="AudioStream" uid="uid://db2xtukjb4beq" path="res://StereoMadness.mp3" id="8_kek77"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_7d4c8"]
 panorama = ExtResource("1_bwoa8")
@@ -236,5 +237,10 @@ theme_override_font_sizes/font_size = 16
 transform = Transform3D(0.8660255, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660255, 3.4, 3.3000002, -5.4)
 pixel_size = 0.01
 text = "Collect all the coins to win!"
+
+[node name="Background_music" type="AudioStreamPlayer2D" parent="." unique_id=1482253730]
+stream = ExtResource("8_kek77")
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="CanvasLayer2/WinScreen/Restartd" to="." method="_on_restartd_pressed"]
