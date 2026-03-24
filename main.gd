@@ -10,5 +10,6 @@ func _ready():
 func _on_restartd_pressed():
 	GameManager.coins = 0
 	GameManager.time_elapsed = 0.0
+	GameManager.game_active = true
 	get_tree().paused = false
 	get_tree().reload_current_scene()

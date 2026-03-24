@@ -23,7 +23,7 @@ config/icon="res://icon.svg"
 
 Pausemenu="res://pausemenu.tscn"
 Deathscreen="*res://deathscreen.gd"
-GameManager="*uid://b3gms76fxcl1a"
+GameManager="*uid://debxku178t20l"
 
 [display]
 

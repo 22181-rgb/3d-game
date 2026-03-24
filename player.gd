@@ -51,3 +51,4 @@ func die():
 	is_dead = true
 	velocity = Vector3.ZERO
 	player_died.emit()
+	GameManager.player_died()

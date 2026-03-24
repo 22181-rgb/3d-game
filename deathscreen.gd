@@ -14,9 +14,13 @@ func _on_restart_button_pressed():
 	print("Restarting...")
 	get_tree().paused = false
 	get_tree().reload_current_scene()
+	GameManager.game_active = true
 	GameManager.coins = 0
 	GameManager.time_elapsed = 0.0
 func _on_mainmenu_pressed():
+	GameManager.game_active = true
+	GameManager.coins = 0
+	GameManager.time_elapsed = 0.0
 	get_tree().paused = false
 	visible = false
 	get_tree().change_scene_to_file("res://menu.tscn")

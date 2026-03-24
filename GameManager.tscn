@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://debxku178t20l"]
+
+[ext_resource type="Script" uid="uid://b3gms76fxcl1a" path="res://GameManager.gd" id="1_p13vs"]
+[ext_resource type="AudioStream" uid="uid://dud8vj11dtwvx" path="res://driken5482-retro-coin-4-236671.mp3" id="2_aelf4"]
+[ext_resource type="AudioStream" uid="uid://bhrknr53fsxr0" path="res://mrstokes302-you-win-sfx-442128.mp3" id="3_108xg"]
+[ext_resource type="AudioStream" uid="uid://d052f0tpuujng" path="res://akshaydabest_777-oof-sound-effect-147492.mp3" id="4_dxunw"]
+
+[node name="GameManager" type="Node" unique_id=640402565]
+script = ExtResource("1_p13vs")
+
+[node name="CoinSound" type="AudioStreamPlayer" parent="." unique_id=1218347280]
+stream = ExtResource("2_aelf4")
+
+[node name="WinSound" type="AudioStreamPlayer" parent="." unique_id=1108406136]
+process_mode = 3
+stream = ExtResource("3_108xg")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="." unique_id=52329862]
+stream = ExtResource("4_dxunw")

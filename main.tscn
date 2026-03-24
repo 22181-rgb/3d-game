@@ -1,26 +1,24 @@
 [gd_scene format=3 uid="uid://ullsoafsacg7"]
 
-[ext_resource type="Texture2D" uid="uid://d3ym5ljrqtlte" path="res://AllSkyFree_Godot-10e858fef0a9c5fa071de8bc191c3b4bef00edda/AllSkyFree_Godot-10e858fef0a9c5fa071de8bc191c3b4bef00edda/Screenshots/citrus_orchard_puresky_4k.exr" id="1_bwoa8"]
 [ext_resource type="Script" uid="uid://c726u3sm4sv4m" path="res://main.gd" id="1_gcajy"]
 [ext_resource type="Script" uid="uid://csn6ekpna7k0b" path="res://player.gd" id="1_uykp6"]
+[ext_resource type="Texture2D" uid="uid://bjppi01pjria7" path="res://citrus_orchard_puresky_4k.hdr" id="2_5vw27"]
 [ext_resource type="PackedScene" uid="uid://ybelcr0i6xlv" path="res://coin.tscn" id="4_tfc1k"]
 [ext_resource type="ArrayMesh" uid="uid://c3nqo0lnpi0ln" path="res://Grass Platform/GrassPlatform.obj" id="6_kek77"]
 [ext_resource type="PackedScene" uid="uid://dnumofn1s30wj" path="res://deathscreen.tscn" id="7_svlmq"]
 [ext_resource type="Script" uid="uid://c0kulaqoibli2" path="res://canvas_layer_2.gd" id="8_5vw27"]
 [ext_resource type="AudioStream" uid="uid://db2xtukjb4beq" path="res://StereoMadness.mp3" id="8_kek77"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_7d4c8"]
-panorama = ExtResource("1_bwoa8")
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_kek77"]
+panorama = ExtResource("2_5vw27")
+energy_multiplier = 0.2
 
-[sub_resource type="Sky" id="Sky_4yp15"]
-sky_material = SubResource("PanoramaSkyMaterial_7d4c8")
+[sub_resource type="Sky" id="Sky_4c57u"]
+sky_material = SubResource("PanoramaSkyMaterial_kek77")
 
-[sub_resource type="Environment" id="Environment_pekyc"]
+[sub_resource type="Environment" id="Environment_efxa6"]
 background_mode = 2
-sky = SubResource("Sky_4yp15")
-ambient_light_color = Color(1, 1, 1, 1)
-ambient_light_energy = 6.4
-tonemap_exposure = 0.3
+sky = SubResource("Sky_4c57u")
 ssr_enabled = true
 ssao_enabled = true
 ssil_enabled = true
@@ -36,12 +34,12 @@ data = PackedVector3Array(-0.2538, 0.2014, -0.2024, -0.2538, 0.1153, -0.2024, 0,
 script = ExtResource("1_gcajy")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1143852701]
-environment = SubResource("Environment_pekyc")
+environment = SubResource("Environment_efxa6")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1178473692]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="CSGCombiner3D" unique_id=1314668213]
-transform = Transform3D(0.914254, -0.345809, 0.211083, 0, 0.52101, 0.853551, -0.405142, -0.780362, 0.476335, 0, 3.8, 0)
+transform = Transform3D(-0.016493171, 0.16704686, -0.98581094, 0.18402562, 0.96960914, 0.16122259, 0.982783, -0.17875537, -0.046732843, -50, 22.2, 10)
 shadow_enabled = true
 
 [node name="world" type="Node3D" parent="." unique_id=775747994]
@@ -134,6 +132,15 @@ mesh = ExtResource("6_kek77")
 [node name="StaticBody3D" type="StaticBody3D" parent="things/MeshInstance3D5" unique_id=550256525]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="things/MeshInstance3D5/StaticBody3D" unique_id=1429434360]
+shape = SubResource("ConcavePolygonShape3D_kek77")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="things" unique_id=1898954419]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.2, 5.2000003, 10.7)
+mesh = ExtResource("6_kek77")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="things/MeshInstance3D8" unique_id=94407704]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="things/MeshInstance3D8/StaticBody3D" unique_id=1242122743]
 shape = SubResource("ConcavePolygonShape3D_kek77")
 
 [node name="coins" type="Node3D" parent="." unique_id=584449763]
