@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://cgidq34p3gt16"]
+
+[ext_resource type="ArrayMesh" uid="uid://c3nqo0lnpi0ln" path="res://Grass Platform/GrassPlatform.obj" id="1_k63f6"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0ltmk"]
+height = 0.1125
+
+[sub_resource type="Animation" id="Animation_0ltmk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlatformBody:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3v42y"]
+resource_name = "patrol"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlatformBody:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.000896911, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(8, 0, 0), Vector3(0, 0, 0), Vector3(8, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ff573"]
+_data = {
+&"RESET": SubResource("Animation_0ltmk"),
+&"patrol": SubResource("Animation_3v42y")
+}
+
+[node name="MovingPlatform" type="Node3D" unique_id=1671239443]
+
+[node name="PlatformBody" type="AnimatableBody3D" parent="." unique_id=1663784417]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlatformBody" unique_id=2059480141]
+transform = Transform3D(1.6, 0, 0, 0, 2.5080001, 0, 0, 0, 1.54, 0, 0, 0)
+mesh = ExtResource("1_k63f6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformBody" unique_id=766344064]
+transform = Transform3D(1, 0, 0, 0, 3.3, 0, 0, 0, 1, 0, 0.34812495, 0)
+shape = SubResource("CylinderShape3D_0ltmk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1067789410]
+libraries/ = SubResource("AnimationLibrary_ff573")
+autoplay = &"patrol"

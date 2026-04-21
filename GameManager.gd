@@ -1,11 +1,10 @@
 extends Node
 
 var coins = 0
-const TARGET_SCORE = 5 
+const TARGET_SCORE = 8 
 var time_elapsed = 0.0  
 var game_active = true 
 
-# Grab references to your audio players
 @onready var coin_sound = $CoinSound
 @onready var win_sound = $WinSound
 @onready var death_sound = $DeathSound
@@ -23,7 +22,7 @@ func add_coin():
 
 func win_game():
 	game_active = false
-	win_sound.play() # Play the win sound!
+	win_sound.play()
 	get_tree().paused = true 
 	
 	var win_ui = get_tree().root.find_child("WinScreen", true, false)
@@ -35,8 +34,7 @@ func win_game():
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-# Add a function specifically for dying so we can play the sound
+
 func player_died():
-	death_sound.play() # Play the death sound!
+	death_sound.play()
 	game_active = false
-	# You can add your death screen logic here!

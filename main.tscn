@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dnumofn1s30wj" path="res://deathscreen.tscn" id="7_svlmq"]
 [ext_resource type="Script" uid="uid://c0kulaqoibli2" path="res://canvas_layer_2.gd" id="8_5vw27"]
 [ext_resource type="AudioStream" uid="uid://db2xtukjb4beq" path="res://StereoMadness.mp3" id="8_kek77"]
+[ext_resource type="PackedScene" uid="uid://cgidq34p3gt16" path="res://MovingPlatform.tscn" id="9_kek77"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_kek77"]
 panorama = ExtResource("2_5vw27")
@@ -134,13 +135,55 @@ mesh = ExtResource("6_kek77")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="things/MeshInstance3D5/StaticBody3D" unique_id=1429434360]
 shape = SubResource("ConcavePolygonShape3D_kek77")
 
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="things" unique_id=1898954419]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.2, 5.2000003, 10.7)
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="things" unique_id=1618943761]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4, 13.400002, 27.300001)
 mesh = ExtResource("6_kek77")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="things/MeshInstance3D8" unique_id=94407704]
+[node name="StaticBody3D" type="StaticBody3D" parent="things/MeshInstance3D9" unique_id=1292267588]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="things/MeshInstance3D8/StaticBody3D" unique_id=1242122743]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="things/MeshInstance3D9/StaticBody3D" unique_id=1380946222]
+shape = SubResource("ConcavePolygonShape3D_kek77")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="things" unique_id=1779886320]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 10.6, 33.4)
+use_collision = true
+radius = 0.045
+height = 0.8
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="things" unique_id=2012024664]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6, 10.500001, 39.100002)
+use_collision = true
+radius = 0.045
+height = 0.8
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="things" unique_id=373735770]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7, 10.400002, 44.800003)
+use_collision = true
+radius = 0.045
+height = 0.8
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="things" unique_id=2137133444]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 12.6, 47.100002)
+mesh = ExtResource("6_kek77")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="things/MeshInstance3D10" unique_id=71482488]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="things/MeshInstance3D10/StaticBody3D" unique_id=2034170837]
+shape = SubResource("ConcavePolygonShape3D_kek77")
+
+[node name="MovingPlatform" parent="things" unique_id=1671239443 instance=ExtResource("9_kek77")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.10000038, 12.9, 49.000004)
+
+[node name="MovingPlatform2" parent="things" unique_id=2067037707 instance=ExtResource("9_kek77")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.10000038, 12.9, 56.500004)
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="things" unique_id=205837181]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 12.6, 70.3)
+mesh = ExtResource("6_kek77")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="things/MeshInstance3D11" unique_id=1200917254]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="things/MeshInstance3D11/StaticBody3D" unique_id=1049911962]
 shape = SubResource("ConcavePolygonShape3D_kek77")
 
 [node name="coins" type="Node3D" parent="." unique_id=584449763]
@@ -158,7 +201,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8, 14.7, 10.2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 11.4, 3.9)
 
 [node name="coin5" parent="coins" unique_id=643750598 instance=ExtResource("4_tfc1k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9, 14.9, 18.9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9, 14.099999, 18.9)
+
+[node name="coin6" parent="coins" unique_id=6554133 instance=ExtResource("4_tfc1k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.699999, 47.200005)
+
+[node name="coin7" parent="coins" unique_id=750593874 instance=ExtResource("4_tfc1k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.600001, 11.2, 39.100002)
+
+[node name="coin8" parent="coins" unique_id=93556214 instance=ExtResource("4_tfc1k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.699999, 70.40001)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=914343838]
 
@@ -249,5 +301,8 @@ text = "Collect all the coins to win!"
 stream = ExtResource("8_kek77")
 autoplay = true
 parameters/looping = true
+
+[node name="MovingPlatform" parent="." unique_id=1799383896 instance=ExtResource("9_kek77")]
+transform = Transform3D(-5.2453668e-08, 0, -1.2, 0, 1, 0, 1.2, 0, -5.2453668e-08, 3.8999999, 13.299999, 16.400003)
 
 [connection signal="pressed" from="CanvasLayer2/WinScreen/Restartd" to="." method="_on_restartd_pressed"]
